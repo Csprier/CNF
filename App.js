@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { View, FlatList } from 'react-native';
-import { Searchbar } from 'react-native-elements';
+import { StyleSheet, View, FlatList } from 'react-native';
+import SearchBar from 'react-native-searchbar'
 
 import { getNews } from './src/news';
 import Article from './src/components/Article';
@@ -11,16 +11,17 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       articles: [],
-      refreshing: true
+      refreshing: true,
+      searchTerm: ''
     };
-    this.fetchNews = this.fetchNews.bind(this);
+    this.fetchNews = this.fetchArticles.bind(this);
   }
 
   componentDidMount() {
-    this.fetchNews();
+    this.fetchArticles();
   }
 
-  fetchNews() {
+  fetchArticles() {
     getNews()
       .then(articles => this.setState({ articles, refreshing: false }))
       .catch(() => this.setState({ refreshing: false }));
@@ -30,15 +31,16 @@ export default class App extends React.Component {
     this.setState({
       refreshing: true
     }, 
-      () => this.fetchNews()
+      () => this.fetchArticles()
     );
   }
 
   render() {
     return (
-      <View>
-        <Searchbar placeholder='Search...' />
+      <View style={{ backgroundColor: 'goldenrod' }}>
+        <SearchBar showOnLoad placeholder="Search articles..."/>
         <FlatList 
+          style={styles.flatlist}
           data={this.state.articles}
           renderItem={({ item }) => <Article article={item} />}
           keyExtractor={item => item.url}
@@ -49,3 +51,9 @@ export default class App extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  flatlist: {
+    marginTop: 75
+  }
+});

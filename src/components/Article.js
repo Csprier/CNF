@@ -15,7 +15,7 @@ export default class Article extends React.Component {
     return (
       <TouchableHighlight useForeground onPress={() => Linking.openURL(url)}>
         <Card featuredTitle={title} featuredTitleStyle={featureTitleStyle} image={{ uri: urlToImage || defaultImg }}>
-          <Text style={{ marginBottom: 10 }}>{description || 'Read more...'}</Text>
+          <Text style={{ padding: 10, marginBottom: 10 }}>{description || 'Read more...'}</Text>
           <Divider style={{ backgroundColor: '#dfe6e9'}} /> 
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={noteStyle}>{source.name.toUpperCase()}</Text>
@@ -25,12 +25,12 @@ export default class Article extends React.Component {
     );
   }
 }
-
+//'#b2bec3'
 const styles = StyleSheet.create({
   noteStyle: {
     margin: 5,
     fontStyle: 'italic',
-    color: '#b2bec3',
+    color: 'black',
     fontSize: 10
   },
   featuredTitleStyle: {
