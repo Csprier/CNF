@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 
 import { getNews } from './src/news';
-// import Article from './src/components/Article';
+import Article from './src/components/Article';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -44,12 +45,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
