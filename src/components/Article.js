@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Linking, StyleSheet, Platform, TouchableHighlight } from 'react-native';
-import { Text, Button, Card, Divider } from 'react-native-elements';
-import moment from 'moment';
+import { View, Linking, StyleSheet, TouchableHighlight } from 'react-native';
+import { Text, Card, Divider } from 'react-native-elements';
 
 export default class Article extends React.Component {
   render() {
@@ -12,6 +11,7 @@ export default class Article extends React.Component {
     // defaultImg is for when articles have no default image of their own
     const defaultImg = 'https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Images-HD-Diamond-Pattern-PIC-WPB009691.jpg';
 
+    // Linking is for interacting with incoming/outgoing app links
     return (
       <TouchableHighlight useForeground onPress={() => Linking.openURL(url)}>
         <Card featuredTitle={title} featuredTitleStyle={featureTitleStyle} image={{ uri: urlToImage || defaultImg }}>
@@ -26,7 +26,6 @@ export default class Article extends React.Component {
   }
 }
 
-// featuredTitleStyle={featuredTitleStyle}
 const styles = StyleSheet.create({
   noteStyle: {
     margin: 5,
@@ -41,25 +40,3 @@ const styles = StyleSheet.create({
     textShadowRadius: 3
   }
 });
-
-/*
-<TouchableHighlight
-  useForeground
-  onPress={() => Linking.openURL(url)}
->
-  <Card
-    featuredTitle={title}
-    featuredTitleStyle={featureTitleStyle}
-    image={{
-      uri: urlToImage || defaultImg
-    }}
-  >
-    <Text style={{ marginBottom: 10 }}>{description || 'Read more...'}</Text>
-    <Divider style={{ backgroundColor: '#dfe6e9'}} />
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
-      <Text style={noteStyle}>{source.name.toUpperCase()}</Text>
-      <Text style={noteStyle}>{time}</Text>
-    </View>
-  </Card>
-</TouchableHighlight>
-*/

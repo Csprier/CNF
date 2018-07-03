@@ -1,9 +1,10 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+
+import { View, FlatList } from 'react-native';
+import { Searchbar } from 'react-native-elements';
 
 import { getNews } from './src/news';
 import Article from './src/components/Article';
-import { ScrollView } from 'react-native-gesture-handler';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -35,13 +36,16 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <FlatList 
-        data={this.state.articles}
-        renderItem={({ item }) => <Article article={item} />}
-        keyExtractor={item => item.url}
-        refreshing={this.state.refreshing}
-        onRefresh={this.handleRefresh.bind(this)}
-      />
+      <View>
+        <Searchbar placeholder='Search...' />
+        <FlatList 
+          data={this.state.articles}
+          renderItem={({ item }) => <Article article={item} />}
+          keyExtractor={item => item.url}
+          refreshing={this.state.refreshing}
+          onRefresh={this.handleRefresh.bind(this)}
+        />
+      </View>
     );
   }
 }
