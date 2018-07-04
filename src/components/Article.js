@@ -14,9 +14,13 @@ export default class Article extends React.Component {
     // Linking is for interacting with incoming/outgoing app links
     return (
       <TouchableHighlight useForeground onPress={() => Linking.openURL(url)}>
-        <Card featuredTitle={title} featuredTitleStyle={featureTitleStyle} image={{ uri: urlToImage || defaultImg }}>
+        <Card 
+          featuredTitle={title} 
+          featuredTitleStyle={featureTitleStyle} 
+          image={{ uri: urlToImage || defaultImg }}
+        >
           <Text style={{ padding: 10, marginBottom: 10 }}>{description || 'Read more...'}</Text>
-          <Divider style={{ backgroundColor: '#dfe6e9'}} /> 
+          <Divider style={{ backgroundColor: '#8e7022'}} /> 
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={noteStyle}>{source.name.toUpperCase()}</Text>
           </View>
@@ -25,12 +29,12 @@ export default class Article extends React.Component {
     );
   }
 }
-//'#b2bec3'
+
 const styles = StyleSheet.create({
   noteStyle: {
     margin: 5,
     fontStyle: 'italic',
-    color: 'black',
+    color: '#8e7022',
     fontSize: 10
   },
   featuredTitleStyle: {

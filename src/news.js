@@ -1,6 +1,7 @@
 import { API_KEY } from 'react-native-dotenv';
 
 const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`;
+// const searchTermUrl = `https://newsapi.org/v2/top-headlines?country=us&q={}&apiKey=${API_KEY}`;
 
 export async function getNews() {
   return fetch(url)
