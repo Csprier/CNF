@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
   buttonStyle: {
     height: 45,
     marginBottom: 8,
+    color: 'white',
     backgroundColor: '#8e7022'
   }
 });
