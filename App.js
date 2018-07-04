@@ -32,7 +32,6 @@ export default class App extends Component {
     this.setState({ refreshing: true })
     searchArticles(term)
       .then(articles => this.setState({ articles, refreshing: false }))
-      .then()
       .catch(() => this.setState({ refreshing: false }));
   }
 

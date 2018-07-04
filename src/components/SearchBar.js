@@ -39,8 +39,6 @@ const styles = StyleSheet.create({
   },
   searchTextStyle: {
     flex: 1,
-    borderBottomColor: '#8e7022',
-    borderBottomWidth: 1
   },
   buttonStyle: {
     height: 45,
