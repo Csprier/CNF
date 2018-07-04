@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { API_KEY } from 'react-native-dotenv';
 
 import { View, FlatList } from 'react-native';
 
-import { getNews } from './src/news';
+import { getNews, searchArticles } from './src/news';
 import AppHeader from './src/components/AppHeader';
 import SearchBar from './src/components/SearchBar';
 import Article from './src/components/Article';
@@ -13,7 +12,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       articles: [],
-      refreshing: true,
+      refreshing: false,
       searchTerm: ''
     };
     this.fetchNews = this.fetchArticles.bind(this);
@@ -29,6 +28,14 @@ export default class App extends Component {
       .catch(() => this.setState({ refreshing: false }));
   }
 
+  onPressSearch = term => {
+    this.setState({ refreshing: true })
+    searchArticles(term)
+      .then(articles => this.setState({ articles, refreshing: false }))
+      .then()
+      .catch(() => this.setState({ refreshing: false }));
+  }
+
   handleRefresh() {
     this.setState({
       refreshing: true
@@ -37,15 +44,14 @@ export default class App extends Component {
     );
   }
 
-  onPressSearch = term => {
-    console.log(term);
-  }
-
   render() {
     return (
       <View style={{ flex:1, backgroundColor: '#ead8ab' }}>
         <AppHeader headerText="| News Feed App |"/>
-        <SearchBar onPressSearch={this.onPressSearch} />
+        <SearchBar 
+          refreshing={this.state.refreshing}
+          onPressSearch={this.onPressSearch} 
+        />
         <View style={{ flex:1, backgroundColor: '#ead8ab' }}>
           <FlatList 
             data={this.state.articles}

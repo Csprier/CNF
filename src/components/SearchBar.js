@@ -15,12 +15,13 @@ class SearchBar extends Component {
       <View style={styles.containerStyle}>
         <TextInput 
           style={styles.searchTextStyle} 
+          placeholder='Search articles...'
           onChangeText={term => this.setState({ searchTerm: term })}
           value={this.state.searchTerm}
         />
         <Button 
           buttonStyle={styles.buttonStyle}
-          title="Search"
+          title={this.props.refreshing ? 'Loading' : 'Search'}
           onPress={() => this.props.onPressSearch(this.state.searchTerm)}
         />
       </View>
@@ -44,7 +45,6 @@ const styles = StyleSheet.create({
   buttonStyle: {
     height: 45,
     marginBottom: 8,
-    color: 'white',
     backgroundColor: '#8e7022'
   }
 });
