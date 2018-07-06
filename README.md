@@ -1,13 +1,14 @@
-#CNF: CAM's NEWS FEED APP
+#Flex Week
+#News Feed App
 
-##Dependencies
+#Dependencies
 "expo"
 "react"
 "react-native"
 "react-native-dotenv"
 "react-native-elements"
 
-###API
+#API
 https://newsapi.org/
 
 
