@@ -4,20 +4,16 @@ import { Text, Card, Divider } from 'react-native-elements';
 
 export default class Article extends React.Component {
   render() {
-    // Destructing the article prop
     const { title, description, source, urlToImage, url } = this.props.article;
-    // Destructing the styles
     const { noteStyle, featureTitleStyle } = styles;
-    // defaultImg is for when articles have no default image of their own
-    const defaultImg = 'https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Images-HD-Diamond-Pattern-PIC-WPB009691.jpg';
-
-    // Linking is for interacting with incoming/outgoing app links
+    const defaultImage = 'https://ak8.picdn.net/shutterstock/videos/1290388/thumb/1.jpg';
+    
     return (
       <TouchableHighlight useForeground onPress={() => Linking.openURL(url)}>
         <Card 
           featuredTitle={title} 
           featuredTitleStyle={featureTitleStyle} 
-          image={{ uri: urlToImage || defaultImg }}
+          image={{ uri: urlToImage || defaultImage }}
         >
           <Text style={{ padding: 10, marginBottom: 10 }}>{description || 'Read more...'}</Text>
           <Divider style={{ backgroundColor: '#8e7022'}} /> 
