@@ -10,6 +10,10 @@ class SearchBar extends Component {
     };
   }
 
+  clearInput = () => {
+    this.textInputRef.clear();
+  }
+
   render() {
     return(
       <View style={styles.containerStyle}>
@@ -18,11 +22,15 @@ class SearchBar extends Component {
           placeholder='Search articles...'
           onChangeText={term => this.setState({ searchTerm: term })}
           value={this.state.searchTerm}
+          clearButtonMode="always"
         />
         <Button 
           buttonStyle={styles.buttonStyle}
           title={this.props.refreshing ? 'Loading' : 'Search'}
-          onPress={() => this.props.onPressSearch(this.state.searchTerm)}
+          onPress={() => {
+            {this.props.onPressSearch(this.state.searchTerm)}
+            {this.clearInput}
+          }}
         />
       </View>
     );
