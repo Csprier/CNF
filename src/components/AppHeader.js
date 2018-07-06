@@ -4,7 +4,7 @@ import { Header } from 'react-native-elements';
 const AppHeader = (props) => (
   <Header 
     statusBarProps={{ barStyle: 'light-content' }}
-    centerComponent={{ text: props.headerText, style: { fontSize: 30, fontWeight: 'bold', color: 'white' } }}
+    centerComponent={{ text: props.headerText, style: { fontFamily: 'Avenir-Heavy', fontSize: 30, fontWeight: 'bold', color: 'white' } }}
     outerContainerStyles={{ 
       height: 100, 
       backgroundColor: '#8e7022', 

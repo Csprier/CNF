@@ -46,7 +46,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={{ flex:1, backgroundColor: '#ead8ab' }}>
-        <AppHeader headerText="| News Feed App |"/>
+        <AppHeader headerText="News Feed App"/>
         <SearchBar 
           refreshing={this.state.refreshing}
           onPressSearch={this.onPressSearch} 
@@ -64,24 +64,3 @@ export default class App extends Component {
     );
   }
 }
-
-/* 
-<View>
-  <SearchBar
-    lightTheme
-    // onChangeText={someMethod}
-    // onClearText={someMethod}
-    icon={{ type: 'font-awesome', name: 'search' }}
-    placeholder='Search articles...' 
-  />
-</View>  
-*/
-
-  // handleSearch(text) {
-  //   let formatQuery = text.toLowerCase();
-  //   // this.setState({ searchTerm: text })
-  //   let searchTermUrl = `https://newsapi.org/v2/top-headlines?country=us&' + 'q=${formatQuery}' + '&apiKey=${API_KEY}`;
-  //   return fetch(searchTermUrl)
-  //     .then(() => this.getNews())
-  //     .catch(err => console.error(err));
-  // }
