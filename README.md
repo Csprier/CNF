@@ -1,5 +1,13 @@
-CNF: CAM's NEWS FEED APP
+#CNF: CAM's NEWS FEED APP
 
-React Native
-react-native-elements
-moment
+##Dependencies
+"expo"
+"react"
+"react-native"
+"react-native-dotenv"
+"react-native-elements"
+
+###API
+https://newsapi.org/
+
+
